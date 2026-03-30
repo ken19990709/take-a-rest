@@ -3,35 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>休息一下吧 ☁️</title>
+<title>休息一下吧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --warm-1: #fef3e2;
-    --warm-2: #fde8cd;
-    --warm-3: #f9d5b8;
-    --warm-4: #f5c09a;
-    --text-1: #5a4636;
-    --text-2: #8a7565;
-    --text-3: #b5a395;
-    --accent: #e8956d;
-    --accent-glow: rgba(232, 149, 109, 0.3);
+    /* ===== Sunset ===== */
+    --s-bg: linear-gradient(160deg, #fef9f0 0%, #fde8cd 35%, #f5d0a9 70%, #edb88a 100%);
+    --s-bg-solid: #fef9f0;
+    --s-text-1: #3d2e1e;
+    --s-text-2: #6b5544;
+    --s-text-3: #a08870;
+    --s-accent: #c4623a;
+    --s-accent-soft: rgba(196,98,58,0.12);
+    --s-accent-glow: rgba(196,98,58,0.22);
+    --s-card: rgba(255,255,255,0.6);
+    --s-card-border: rgba(196,98,58,0.12);
+    --s-btn: linear-gradient(135deg, #c4623a, #a8502e);
+    --s-btn-text: #fff;
+    --s-overlay: rgba(60,40,20,0.55);
+    --s-particle: #c4623a;
+    --s-shadow: rgba(60,40,20,0.1);
+    --s-ring-bg: rgba(196,98,58,0.12);
+    --s-grain-opacity: 0.025;
+    --s-heading-font: 'Noto Serif SC', serif;
+    --s-body-font: 'Space Grotesk', sans-serif;
+    --s-mono-font: 'Space Grotesk', monospace;
+
+    /* ===== Night Sky ===== */
+    --n-bg: linear-gradient(170deg, #070714 0%, #0e1028 35%, #141438 65%, #0b0b1e 100%);
+    --n-bg-solid: #070714;
+    --n-text-1: #f0ecf8;
+    --n-text-2: #b0a8c8;
+    --n-text-3: #7068a0;
+    --n-accent: #8ec8e8;
+    --n-accent-soft: rgba(142,200,232,0.1);
+    --n-accent-glow: rgba(142,200,232,0.18);
+    --n-card: rgba(255,255,255,0.04);
+    --n-card-border: rgba(142,200,232,0.1);
+    --n-btn: linear-gradient(135deg, #8ec8e8, #60a0c8);
+    --n-btn-text: #070714;
+    --n-overlay: rgba(4,4,12,0.75);
+    --n-particle: #8ec8e8;
+    --n-shadow: rgba(0,0,0,0.35);
+    --n-ring-bg: rgba(142,200,232,0.08);
+    --n-grain-opacity: 0.035;
+    --n-heading-font: 'Playfair Display', serif;
+    --n-body-font: 'DM Sans', sans-serif;
+    --n-mono-font: 'Space Grotesk', monospace;
+
+    /* ===== Forest ===== */
+    --f-bg: linear-gradient(165deg, #eef4e8 0%, #d6e6cc 30%, #bcd4aa 65%, #a4c48e 100%);
+    --f-bg-solid: #eef4e8;
+    --f-text-1: #1e2e18;
+    --f-text-2: #4a6040;
+    --f-text-3: #7a9468;
+    --f-accent: #4e8a3c;
+    --f-accent-soft: rgba(78,138,60,0.1);
+    --f-accent-glow: rgba(78,138,60,0.18);
+    --f-card: rgba(255,255,255,0.55);
+    --f-card-border: rgba(78,138,60,0.12);
+    --f-btn: linear-gradient(135deg, #4e8a3c, #3a7028);
+    --f-btn-text: #fff;
+    --f-overlay: rgba(30,46,24,0.5);
+    --f-particle: #4e8a3c;
+    --f-shadow: rgba(30,46,24,0.1);
+    --f-ring-bg: rgba(78,138,60,0.1);
+    --f-grain-opacity: 0.025;
+    --f-heading-font: 'Noto Serif SC', serif;
+    --f-body-font: 'DM Sans', sans-serif;
+    --f-mono-font: 'Space Grotesk', monospace;
+
+    /* ===== Polar ===== */
+    --p-bg: linear-gradient(160deg, #f5f6f9 0%, #e6e9f0 30%, #d8dce6 65%, #caced8 100%);
+    --p-bg-solid: #f5f6f9;
+    --p-text-1: #18182e;
+    --p-text-2: #484868;
+    --p-text-3: #8888a8;
+    --p-accent: #5858a8;
+    --p-accent-soft: rgba(88,88,168,0.08);
+    --p-accent-glow: rgba(88,88,168,0.15);
+    --p-card: rgba(255,255,255,0.72);
+    --p-card-border: rgba(88,88,168,0.1);
+    --p-btn: linear-gradient(135deg, #5858a8, #404088);
+    --p-btn-text: #f5f6f9;
+    --p-overlay: rgba(20,20,40,0.5);
+    --p-particle: #5858a8;
+    --p-shadow: rgba(20,20,40,0.07);
+    --p-ring-bg: rgba(88,88,168,0.08);
+    --p-grain-opacity: 0.018;
+    --p-heading-font: 'Playfair Display', serif;
+    --p-body-font: 'DM Sans', sans-serif;
+    --p-mono-font: 'Space Grotesk', monospace;
+
+    /* Active theme (sunset default) */
+    --bg: var(--s-bg); --bg-solid: var(--s-bg-solid);
+    --text-1: var(--s-text-1); --text-2: var(--s-text-2); --text-3: var(--s-text-3);
+    --accent: var(--s-accent); --accent-soft: var(--s-accent-soft); --accent-glow: var(--s-accent-glow);
+    --card: var(--s-card); --card-border: var(--s-card-border);
+    --btn: var(--s-btn); --btn-text: var(--s-btn-text);
+    --overlay-bg: var(--s-overlay); --particle-color: var(--s-particle);
+    --shadow-color: var(--s-shadow); --ring-bg: var(--s-ring-bg); --grain-opacity: var(--s-grain-opacity);
+    --heading-font: var(--s-heading-font); --body-font: var(--s-body-font); --mono-font: var(--s-mono-font);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Theme classes */
+  body.theme-sunset {
+    --bg: var(--s-bg); --bg-solid: var(--s-bg-solid);
+    --text-1: var(--s-text-1); --text-2: var(--s-text-2); --text-3: var(--s-text-3);
+    --accent: var(--s-accent); --accent-soft: var(--s-accent-soft); --accent-glow: var(--s-accent-glow);
+    --card: var(--s-card); --card-border: var(--s-card-border);
+    --btn: var(--s-btn); --btn-text: var(--s-btn-text);
+    --overlay-bg: var(--s-overlay); --particle-color: var(--s-particle);
+    --shadow-color: var(--s-shadow); --ring-bg: var(--s-ring-bg); --grain-opacity: var(--s-grain-opacity);
+    --heading-font: var(--s-heading-font); --body-font: var(--s-body-font); --mono-font: var(--s-mono-font);
+  }
+  body.theme-night {
+    --bg: var(--n-bg); --bg-solid: var(--n-bg-solid);
+    --text-1: var(--n-text-1); --text-2: var(--n-text-2); --text-3: var(--n-text-3);
+    --accent: var(--n-accent); --accent-soft: var(--n-accent-soft); --accent-glow: var(--n-accent-glow);
+    --card: var(--n-card); --card-border: var(--n-card-border);
+    --btn: var(--n-btn); --btn-text: var(--n-btn-text);
+    --overlay-bg: var(--n-overlay); --particle-color: var(--n-particle);
+    --shadow-color: var(--n-shadow); --ring-bg: var(--n-ring-bg); --grain-opacity: var(--n-grain-opacity);
+    --heading-font: var(--n-heading-font); --body-font: var(--n-body-font); --mono-font: var(--n-mono-font);
+  }
+  body.theme-forest {
+    --bg: var(--f-bg); --bg-solid: var(--f-bg-solid);
+    --text-1: var(--f-text-1); --text-2: var(--f-text-2); --text-3: var(--f-text-3);
+    --accent: var(--f-accent); --accent-soft: var(--f-accent-soft); --accent-glow: var(--f-accent-glow);
+    --card: var(--f-card); --card-border: var(--f-card-border);
+    --btn: var(--f-btn); --btn-text: var(--f-btn-text);
+    --overlay-bg: var(--f-overlay); --particle-color: var(--f-particle);
+    --shadow-color: var(--f-shadow); --ring-bg: var(--f-ring-bg); --grain-opacity: var(--f-grain-opacity);
+    --heading-font: var(--f-heading-font); --body-font: var(--f-body-font); --mono-font: var(--f-mono-font);
+  }
+  body.theme-polar {
+    --bg: var(--p-bg); --bg-solid: var(--p-bg-solid);
+    --text-1: var(--p-text-1); --text-2: var(--p-text-2); --text-3: var(--p-text-3);
+    --accent: var(--p-accent); --accent-soft: var(--p-accent-soft); --accent-glow: var(--p-accent-glow);
+    --card: var(--p-card); --card-border: var(--p-card-border);
+    --btn: var(--p-btn); --btn-text: var(--p-btn-text);
+    --overlay-bg: var(--p-overlay); --particle-color: var(--p-particle);
+    --shadow-color: var(--p-shadow); --ring-bg: var(--p-ring-bg); --grain-opacity: var(--p-grain-opacity);
+    --heading-font: var(--p-heading-font); --body-font: var(--p-body-font); --mono-font: var(--p-mono-font);
+  }
 
   body {
-    font-family: 'Noto Serif SC', serif;
-    background: linear-gradient(160deg, #fef9f0 0%, #fde8cd 40%, #f5d0a9 100%);
+    font-family: var(--body-font);
+    background: var(--bg);
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     color: var(--text-1);
     position: relative;
+    transition: color 0.6s ease, background 0.6s ease;
   }
 
-  /* ====== 飘动的云朵 ====== */
-  .clouds {
+  /* Grain */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: var(--grain-opacity);
+    pointer-events: none;
+    z-index: 999;
+    mix-blend-mode: overlay;
+  }
+
+  /* Ambient blobs */
+  .ambient {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -40,76 +184,134 @@
     overflow: hidden;
   }
 
-  .cloud {
+  .ambient-blob {
     position: absolute;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 100px;
-    filter: blur(1px);
-    animation: floatCloud linear infinite;
-  }
-
-  .cloud::before, .cloud::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.2;
+    animation: blobFloat 20s ease-in-out infinite;
+    transition: background 0.8s ease;
   }
 
-  .cloud-1 {
-    width: 120px; height: 40px; top: 8%;
-    animation-duration: 45s;
-    opacity: 0.5;
+  .ambient-blob:nth-child(1) {
+    width: 450px; height: 450px;
+    background: var(--accent);
+    top: -10%; right: -5%;
+    animation-duration: 25s;
   }
-  .cloud-1::before { width: 50px; height: 50px; top: -25px; left: 20px; }
-  .cloud-1::after { width: 70px; height: 60px; top: -30px; left: 50px; }
-
-  .cloud-2 {
-    width: 90px; height: 30px; top: 15%;
-    animation-duration: 55s;
-    animation-delay: -15s;
-    opacity: 0.4;
+  .ambient-blob:nth-child(2) {
+    width: 350px; height: 350px;
+    background: var(--accent);
+    bottom: -5%; left: -5%;
+    animation-duration: 20s;
+    animation-delay: -8s;
+    opacity: 0.12;
   }
-  .cloud-2::before { width: 40px; height: 40px; top: -20px; left: 15px; }
-  .cloud-2::after { width: 55px; height: 45px; top: -22px; left: 35px; }
-
-  .cloud-3 {
-    width: 150px; height: 45px; top: 5%;
-    animation-duration: 60s;
-    animation-delay: -30s;
-    opacity: 0.35;
-  }
-  .cloud-3::before { width: 60px; height: 55px; top: -28px; left: 25px; }
-  .cloud-3::after { width: 80px; height: 65px; top: -32px; left: 60px; }
-
-  @keyframes floatCloud {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(calc(100vw + 200px)); }
+  .ambient-blob:nth-child(3) {
+    width: 250px; height: 250px;
+    background: var(--accent);
+    top: 40%; left: 60%;
+    animation-duration: 18s;
+    animation-delay: -14s;
+    opacity: 0.08;
   }
 
-  /* ====== 粒子/光点 ====== */
-  .particles {
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+
+  /* Stars */
+  .stars-layer {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     pointer-events: none;
     z-index: 0;
-  }
-
-  .particle {
-    position: absolute;
-    width: 4px; height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
     opacity: 0;
-    animation: sparkle ease-in-out infinite;
+    transition: opacity 0.8s ease;
   }
 
-  @keyframes sparkle {
-    0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
-    50% { opacity: 0.6; transform: translateY(-20px) scale(1); }
+  body.theme-night .stars-layer { opacity: 1; }
+
+  .star {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle ease-in-out infinite;
   }
 
-  /* ====== 主容器 ====== */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.85; }
+  }
+
+  /* Theme switcher */
+  .theme-switcher {
+    position: fixed;
+    top: 28px; right: 28px;
+    z-index: 50;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease-out 2s forwards;
+  }
+
+  @keyframes fadeDown { to { opacity: 1; } }
+
+  .theme-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--card-border);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    outline: none;
+  }
+
+  .theme-dot:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 12px var(--shadow-color);
+  }
+
+  .theme-dot.active::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  .dot-sunset { background: linear-gradient(135deg, #fde8cd, #c4623a); }
+  .dot-night { background: linear-gradient(135deg, #141438, #8ec8e8); }
+  .dot-forest { background: linear-gradient(135deg, #d6e6cc, #4e8a3c); }
+  .dot-polar { background: linear-gradient(135deg, #f5f6f9, #5858a8); }
+
+  .theme-dot-label {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--body-font);
+    font-size: 11px;
+    color: var(--text-3);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .theme-dot:hover .theme-dot-label { opacity: 1; }
+
+  /* Main container */
   .container {
     position: relative;
     z-index: 1;
@@ -118,200 +320,304 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 32px;
     text-align: center;
   }
 
-  /* ====== 开场动画 ====== */
-  .hero-section {
+  /* Hero */
+  .hero {
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1.2s ease-out 0.3s forwards;
+    transform: translateY(24px);
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   }
 
-  @keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 
-  .breath-circle {
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(232, 149, 109, 0.15) 0%, rgba(232, 149, 109, 0.05) 70%, transparent 100%);
-    border: 2px solid rgba(232, 149, 109, 0.2);
-    margin: 0 auto 30px;
-    animation: breathe 4s ease-in-out infinite;
+  .hero-icon {
+    width: 100px; height: 100px;
+    margin: 0 auto 32px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
   }
 
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); border-color: rgba(232, 149, 109, 0.2); }
-    50% { transform: scale(1.08); border-color: rgba(232, 149, 109, 0.4); }
+  .hero-icon-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0.3;
+    animation: iconPulse 4s ease-in-out infinite;
+    transition: border-color 0.6s ease;
   }
 
-  .main-title {
-    font-size: clamp(28px, 6vw, 42px);
-    font-weight: 300;
-    color: var(--text-1);
-    letter-spacing: 4px;
+  .hero-icon-ring:nth-child(2) {
+    inset: -10px;
+    opacity: 0.15;
+    animation-delay: -1s;
+    animation-duration: 5s;
+  }
+
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.06); opacity: 0.15; }
+  }
+
+  .hero-icon svg {
+    width: 38px; height: 38px;
+    color: var(--accent);
+    transition: color 0.6s ease;
+  }
+
+  .hero h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(36px, 8vw, 58px);
+    font-weight: 500;
+    letter-spacing: 8px;
     margin-bottom: 16px;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.8s forwards;
+    color: var(--text-1);
+    transition: color 0.6s ease;
   }
 
-  .sub-title {
-    font-size: clamp(14px, 3vw, 17px);
+  .hero p {
+    font-family: var(--body-font);
+    font-size: clamp(15px, 3vw, 18px);
     color: var(--text-2);
     font-weight: 300;
-    margin-bottom: 40px;
+    line-height: 2;
+    max-width: 360px;
+    margin: 0 auto;
     opacity: 0;
-    animation: fadeInUp 1s ease-out 1.2s forwards;
-    line-height: 1.8;
+    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    transition: color 0.6s ease;
   }
 
-  /* ====== 休息计时器 ====== */
+  /* Timer */
   .timer-section {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 1.5s forwards;
+    margin-top: 56px;
     width: 100%;
     max-width: 400px;
+    opacity: 0;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
   }
 
-  .timer-display {
+  .timer-ring-wrap {
     position: relative;
-    width: 200px; height: 200px;
-    margin: 0 auto 30px;
+    width: 220px; height: 220px;
+    margin: 0 auto 36px;
   }
 
-  .timer-ring {
-    width: 200px; height: 200px;
+  .timer-ring-svg {
+    width: 220px; height: 220px;
     transform: rotate(-90deg);
   }
 
-  .timer-ring-bg {
+  .ring-bg {
     fill: none;
-    stroke: rgba(232, 149, 109, 0.12);
-    stroke-width: 6;
+    stroke: var(--ring-bg);
+    stroke-width: 3;
+    transition: stroke 0.6s ease;
   }
 
-  .timer-ring-progress {
+  .ring-progress {
     fill: none;
     stroke: var(--accent);
-    stroke-width: 6;
+    stroke-width: 3.5;
     stroke-linecap: round;
-    stroke-dasharray: 565.48;
+    stroke-dasharray: 565.49;
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
-    filter: drop-shadow(0 0 6px var(--accent-glow));
+    transition: stroke-dashoffset 1s linear, stroke 0.6s ease;
+    filter: drop-shadow(0 0 10px var(--accent-glow));
   }
 
-  .timer-text {
+  .timer-center {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
   }
 
-  .timer-minutes {
-    font-size: 42px;
+  .timer-value {
+    font-family: var(--mono-font);
+    font-size: 48px;
     font-weight: 300;
     color: var(--text-1);
+    letter-spacing: 3px;
     line-height: 1;
+    transition: color 0.6s ease;
   }
 
-  .timer-label {
-    font-size: 13px;
+  .timer-unit {
+    font-family: var(--body-font);
+    font-size: 12px;
     color: var(--text-3);
-    margin-top: 4px;
-    letter-spacing: 2px;
+    margin-top: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: color 0.6s ease;
   }
 
-  /* ====== 时间选择 ====== */
-  .time-options {
+  /* Presets */
+  .time-presets {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     flex-wrap: wrap;
   }
 
-  .time-btn {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1.5px solid rgba(232, 149, 109, 0.2);
-    border-radius: 20px;
-    padding: 8px 20px;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 14px;
+  .preset-btn {
+    font-family: var(--body-font);
+    font-size: 15px;
+    font-weight: 500;
     color: var(--text-2);
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    padding: 9px 22px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
-  .time-btn:hover {
-    background: rgba(255, 255, 255, 0.85);
+  .preset-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(232, 149, 109, 0.15);
-  }
-
-  .time-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(232, 149, 109, 0.3);
-  }
-
-  /* ====== 主按钮 ====== */
-  .start-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--accent) 0%, #d4845f 100%);
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding: 14px 42px;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 25px rgba(232, 149, 109, 0.3);
-    letter-spacing: 2px;
-  }
-
-  .start-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(232, 149, 109, 0.4);
-  }
-
-  .start-btn:active {
     transform: translateY(-1px);
   }
 
-  .start-btn.running {
-    background: linear-gradient(135deg, #b5a395 0%, #a09085 100%);
-    box-shadow: 0 6px 25px rgba(181, 163, 149, 0.3);
+  .preset-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--btn-text);
+    box-shadow: 0 4px 16px var(--accent-glow);
   }
 
-  /* ====== 提醒弹窗 ====== */
+  /* Custom time */
+  .custom-time-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease;
+  }
+
+  .custom-time-row.show {
+    opacity: 1;
+    height: 44px;
+    margin-bottom: 28px;
+  }
+
+  .custom-input {
+    font-family: var(--body-font);
+    font-size: 15px;
+    font-weight: 400;
+    width: 68px;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    color: var(--text-1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    outline: none;
+    transition: border-color 0.3s ease, color 0.6s ease;
+  }
+
+  .custom-input:focus { border-color: var(--accent); }
+
+  .custom-input::placeholder {
+    color: var(--text-3);
+    font-size: 13px;
+  }
+
+  .custom-label {
+    font-family: var(--body-font);
+    font-size: 15px;
+    color: var(--text-3);
+    transition: color 0.6s ease;
+  }
+
+  .custom-toggle {
+    font-family: var(--body-font);
+    font-size: 13px;
+    color: var(--text-3);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-bottom: 1px dashed var(--text-3);
+    transition: color 0.2s, border-color 0.2s;
+    display: block;
+    margin: 0 auto 16px;
+  }
+
+  .custom-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* Start button */
+  .start-btn {
+    font-family: var(--heading-font);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: var(--btn-text);
+    background: var(--btn);
+    border: none;
+    border-radius: 100px;
+    padding: 16px 56px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 32px var(--accent-glow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .start-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.3s;
+  }
+
+  .start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px var(--accent-glow);
+  }
+
+  .start-btn:hover::before { background: rgba(255,255,255,0.08); }
+
+  .start-btn:active { transform: translateY(0); }
+
+  .start-btn.running {
+    opacity: 0.7;
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+
+  /* Reminder overlay */
   .reminder-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(94, 78, 62, 0.4);
-    backdrop-filter: blur(8px);
+    inset: 0;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, background 0.6s ease;
   }
 
   .reminder-overlay.show {
@@ -320,232 +626,384 @@
   }
 
   .reminder-card {
-    background: linear-gradient(160deg, #fffaf4 0%, #fef3e2 100%);
-    border-radius: 24px;
-    padding: 50px 40px;
-    max-width: 380px;
-    width: 90%;
+    background: var(--card);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--card-border);
+    border-radius: 28px;
+    padding: 52px 40px;
+    max-width: 400px;
+    width: 88%;
     text-align: center;
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 20px 60px rgba(90, 70, 54, 0.15);
+    transform: scale(0.92) translateY(16px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.6s ease, border-color 0.6s ease;
   }
 
   .reminder-overlay.show .reminder-card {
     transform: scale(1) translateY(0);
   }
 
-  .reminder-emoji {
-    font-size: 56px;
-    margin-bottom: 20px;
+  .reminder-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
     display: block;
-    animation: reminderBounce 0.6s ease-out 0.3s both;
+    animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
   }
 
-  @keyframes reminderBounce {
-    0% { transform: scale(0); }
-    60% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+  @keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   .reminder-title {
-    font-size: 24px;
+    font-family: var(--heading-font);
+    font-size: 26px;
     font-weight: 500;
     color: var(--text-1);
-    margin-bottom: 12px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    transition: color 0.6s ease;
   }
 
   .reminder-text {
-    font-size: 15px;
+    font-family: var(--heading-font);
+    font-size: 16px;
     color: var(--text-2);
-    line-height: 1.8;
-    margin-bottom: 30px;
+    line-height: 2.2;
+    margin-bottom: 36px;
     font-weight: 300;
+    transition: color 0.6s ease;
   }
 
-  .reminder-close-btn {
-    background: rgba(232, 149, 109, 0.1);
-    border: 1.5px solid rgba(232, 149, 109, 0.3);
-    border-radius: 24px;
-    padding: 12px 36px;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 15px;
+  .reminder-close {
+    font-family: var(--heading-font);
+    font-size: 16px;
     color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid transparent;
+    border-radius: 100px;
+    padding: 12px 36px;
     cursor: pointer;
     transition: all 0.3s ease;
+    letter-spacing: 2px;
   }
 
-  .reminder-close-btn:hover {
+  .reminder-close:hover {
     background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
+    color: var(--btn-text);
   }
 
-  /* ====== 底部签名 ====== */
-  .footer {
+  /* Fly particles */
+  .fly-particle {
     position: fixed;
-    bottom: 20px;
-    left: 0; right: 0;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-3);
-    letter-spacing: 1px;
-    opacity: 0.6;
-    z-index: 1;
-  }
-
-  /* ====== 星星飘起动画 ====== */
-  .flying-star {
-    position: fixed;
-    font-size: 24px;
     pointer-events: none;
     z-index: 101;
-    animation: flyStar 3s ease-out forwards;
+    animation: flyUp 2.5s ease-out forwards;
   }
 
-  @keyframes flyStar {
+  @keyframes flyUp {
     0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
-    100% { opacity: 0; transform: translateY(-400px) scale(0.3) rotate(360deg); }
+    100% { opacity: 0; transform: translateY(-350px) scale(0.2) rotate(180deg); }
   }
 
-  /* ====== 响应式 ====== */
+  /* Footer */
+  .footer {
+    position: fixed;
+    bottom: 18px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 12px;
+    color: var(--text-3);
+    letter-spacing: 0.5px;
+    z-index: 1;
+    opacity: 0.5;
+    transition: color 0.6s ease;
+  }
+
+  /* Theme switch hint */
+  .theme-hint {
+    position: fixed;
+    bottom: 40px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 11px;
+    color: var(--text-3);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, color 0.6s ease;
+  }
+
+  .theme-hint.show {
+    opacity: 0.6;
+    animation: hintFade 2s ease-out 1.5s forwards;
+  }
+
+  @keyframes hintFade {
+    to { opacity: 0; }
+  }
+
+  /* Responsive */
   @media (max-width: 480px) {
-    .main-title { letter-spacing: 2px; }
-    .breath-circle { width: 90px; height: 90px; font-size: 36px; }
-    .timer-display { width: 160px; height: 160px; }
-    .timer-ring { width: 160px; height: 160px; }
-    .timer-minutes { font-size: 36px; }
-    .reminder-card { padding: 40px 30px; }
+    .hero h1 { letter-spacing: 5px; }
+    .timer-ring-wrap { width: 190px; height: 190px; }
+    .timer-ring-svg { width: 190px; height: 190px; }
+    .timer-value { font-size: 42px; }
+    .theme-switcher { top: 16px; right: 16px; gap: 8px; }
+    .theme-dot { width: 28px; height: 28px; }
+    .reminder-card { padding: 40px 32px; }
+    .start-btn { padding: 14px 44px; font-size: 16px; }
+    .preset-btn { padding: 8px 18px; font-size: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
-<body>
+<body class="theme-sunset">
 
-<!-- 飘动的云朵 -->
-<div class="clouds">
-  <div class="cloud cloud-1"></div>
-  <div class="cloud cloud-2"></div>
-  <div class="cloud cloud-3"></div>
+<div class="ambient" aria-hidden="true">
+  <div class="ambient-blob"></div>
+  <div class="ambient-blob"></div>
+  <div class="ambient-blob"></div>
 </div>
 
-<!-- 光点粒子 -->
-<div class="particles" id="particles"></div>
+<div class="stars-layer" id="starsLayer" aria-hidden="true"></div>
 
-<!-- 主内容 -->
-<div class="container">
-  <div class="hero-section">
-    <div class="breath-circle">☁️</div>
-    <h1 class="main-title">休息一下吧</h1>
-    <p class="sub-title">你已经在屏幕前坐了很久了<br>给自己几分钟，什么都不做也好的</p>
-  </div>
+<nav class="theme-switcher" aria-label="切换主题风格">
+  <button class="theme-dot dot-sunset active" data-theme="sunset" aria-label="日落暖阳">
+    <span class="theme-dot-label">日落</span>
+  </button>
+  <button class="theme-dot dot-night" data-theme="night" aria-label="深夜星空">
+    <span class="theme-dot-label">星空</span>
+  </button>
+  <button class="theme-dot dot-forest" data-theme="forest" aria-label="雨后森林">
+    <span class="theme-dot-label">森林</span>
+  </button>
+  <button class="theme-dot dot-polar" data-theme="polar" aria-label="极光极简">
+    <span class="theme-dot-label">极简</span>
+  </button>
+</nav>
 
-  <div class="timer-section">
-    <div class="timer-display">
-      <svg class="timer-ring" viewBox="0 0 200 200">
-        <circle class="timer-ring-bg" cx="100" cy="100" r="90"></circle>
-        <circle class="timer-ring-progress" id="timerProgress" cx="100" cy="100" r="90"></circle>
+<main class="container">
+  <header class="hero">
+    <div class="hero-icon">
+      <div class="hero-icon-ring"></div>
+      <div class="hero-icon-ring"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 8.25 4.09"/>
       </svg>
-      <div class="timer-text">
-        <div class="timer-minutes" id="timerMinutes">25</div>
-        <div class="timer-label" id="timerLabel">分钟</div>
+    </div>
+    <h1>休息一下吧</h1>
+    <p>你已经在屏幕前坐了很久了<br>给自己几分钟，什么都不做也好的</p>
+  </header>
+
+  <section class="timer-section" aria-label="休息计时器">
+    <div class="timer-ring-wrap">
+      <svg class="timer-ring-svg" viewBox="0 0 220 220">
+        <circle class="ring-bg" cx="110" cy="110" r="90"></circle>
+        <circle class="ring-progress" id="ringProgress" cx="110" cy="110" r="90"></circle>
+      </svg>
+      <div class="timer-center">
+        <div class="timer-value" id="timerValue">25</div>
+        <div class="timer-unit" id="timerUnit">min</div>
       </div>
     </div>
 
-    <div class="time-options" id="timeOptions">
-      <button class="time-btn" data-minutes="5">5 分钟</button>
-      <button class="time-btn" data-minutes="10">10 分钟</button>
-      <button class="time-btn active" data-minutes="25">25 分钟</button>
-      <button class="time-btn" data-minutes="45">45 分钟</button>
+    <div class="time-presets" id="presets">
+      <button class="preset-btn" data-min="5">5</button>
+      <button class="preset-btn" data-min="10">10</button>
+      <button class="preset-btn active" data-min="25">25</button>
+      <button class="preset-btn" data-min="45">45</button>
+      <button class="preset-btn" data-min="60">60</button>
     </div>
 
-    <button class="start-btn" id="startBtn">
-      <span id="startBtnText">开始休息</span>
-    </button>
-  </div>
-</div>
+    <button class="custom-toggle" id="customToggle">自定义时间</button>
 
-<!-- 提醒弹窗 -->
-<div class="reminder-overlay" id="reminderOverlay">
+    <div class="custom-time-row" id="customRow">
+      <input type="number" class="custom-input" id="customMin" min="0" max="999" placeholder="分">
+      <span class="custom-label">:</span>
+      <input type="number" class="custom-input" id="customSec" min="0" max="59" placeholder="秒">
+      <button class="custom-input" id="customConfirm" style="width:auto;padding:8px 16px;cursor:pointer;font-weight:500;">OK</button>
+    </div>
+
+    <button class="start-btn" id="startBtn">开始休息</button>
+  </section>
+</main>
+
+<div class="reminder-overlay" id="reminderOverlay" role="dialog" aria-modal="true">
   <div class="reminder-card">
-    <span class="reminder-emoji" id="reminderEmoji">🌿</span>
-    <h2 class="reminder-title" id="reminderTitle">休息好了吗？</h2>
-    <p class="reminder-text" id="reminderText">站起来走走吧，<br>窗外的光还很好看。</p>
-    <button class="reminder-close-btn" id="reminderCloseBtn">好的，我回来啦</button>
+    <span class="reminder-icon" id="reminderIcon"></span>
+    <h2 class="reminder-title" id="reminderTitle"></h2>
+    <p class="reminder-text" id="reminderText"></p>
+    <button class="reminder-close" id="reminderClose">好的，回来了</button>
   </div>
 </div>
 
-<div class="footer">用 AI 做的小工具 · 希望你今天也好好休息</div>
+<div class="theme-hint" id="themeHint"></div>
+
+<footer class="footer">用 AI 做的小工具</footer>
 
 <script>
-  // ====== 粒子生成 ======
-  const particlesEl = document.getElementById('particles');
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = Math.random() * 100 + '%';
-    p.style.animationDuration = (3 + Math.random() * 4) + 's';
-    p.style.animationDelay = Math.random() * 5 + 's';
-    p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
-    particlesEl.appendChild(p);
+(function() {
+  'use strict';
+
+  // ====== STARS ======
+  const starsLayer = document.getElementById('starsLayer');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDuration = (2 + Math.random() * 4) + 's';
+    s.style.animationDelay = Math.random() * 5 + 's';
+    const size = 1 + Math.random() * 2.5;
+    s.style.width = s.style.height = size + 'px';
+    starsLayer.appendChild(s);
   }
 
-  // ====== 计时器逻辑 ======
-  const timerMinutes = document.getElementById('timerMinutes');
-  const timerLabel = document.getElementById('timerLabel');
-  const timerProgress = document.getElementById('timerProgress');
+  // ====== THEME ======
+  const body = document.body;
+  const themeDots = document.querySelectorAll('.theme-dot');
+  const themeHint = document.getElementById('themeHint');
+  let currentTheme = 'sunset';
+
+  const themeNames = {
+    sunset: '日落暖阳',
+    night: '深夜星空',
+    forest: '雨后森林',
+    polar: '极光极简'
+  };
+
+  function switchTheme(theme) {
+    if (theme === currentTheme) return;
+    currentTheme = theme;
+    body.className = 'theme-' + theme;
+    themeDots.forEach(d => d.classList.remove('active'));
+    document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
+  }
+
+  let hintTimer = null;
+  function showThemeHint(theme) {
+    if (isRunning) {
+      themeHint.textContent = '已切换至「' + themeNames[theme] + '」';
+      themeHint.classList.remove('show');
+      void themeHint.offsetWidth; // reflow
+      themeHint.classList.add('show');
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => themeHint.classList.remove('show'), 2500);
+    }
+  }
+
+  themeDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const theme = dot.dataset.theme;
+      switchTheme(theme);
+      if (isRunning) {
+        showThemeHint(theme);
+      }
+    });
+  });
+
+  // ====== TIMER STATE ======
+  const timerValue = document.getElementById('timerValue');
+  const timerUnit = document.getElementById('timerUnit');
+  const ringProgress = document.getElementById('ringProgress');
   const startBtn = document.getElementById('startBtn');
-  const startBtnText = document.getElementById('startBtnText');
-  const timeOptions = document.getElementById('timeOptions');
+  const presetsEl = document.getElementById('presets');
+  const customToggle = document.getElementById('customToggle');
+  const customRow = document.getElementById('customRow');
+  const customMin = document.getElementById('customMin');
+  const customSec = document.getElementById('customSec');
+  const customConfirm = document.getElementById('customConfirm');
 
   let selectedMinutes = 25;
   let totalSeconds = 25 * 60;
   let remainingSeconds = totalSeconds;
   let timerInterval = null;
   let isRunning = false;
+  let isCustom = false;
 
-  const circumference = 2 * Math.PI * 90; // r=90
-  timerProgress.style.strokeDasharray = circumference;
-  timerProgress.style.strokeDashoffset = 0;
+  const circumference = 2 * Math.PI * 90;
+  ringProgress.style.strokeDasharray = circumference;
+  ringProgress.style.strokeDashoffset = 0;
 
-  // 时间选择
-  timeOptions.addEventListener('click', (e) => {
+  // ====== PRESETS ======
+  presetsEl.addEventListener('click', e => {
     if (isRunning) return;
-    const btn = e.target.closest('.time-btn');
+    const btn = e.target.closest('.preset-btn');
     if (!btn) return;
-
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+    isCustom = false;
+    presetsEl.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    selectedMinutes = parseInt(btn.dataset.minutes);
+    selectedMinutes = parseInt(btn.dataset.min);
     totalSeconds = selectedMinutes * 60;
     remainingSeconds = totalSeconds;
     updateDisplay();
   });
 
-  // 开始/暂停
+  // ====== CUSTOM TIME ======
+  let customOpen = false;
+  customToggle.addEventListener('click', () => {
+    if (isRunning) return;
+    customOpen = !customOpen;
+    customRow.classList.toggle('show', customOpen);
+  });
+
+  function applyCustomTime() {
+    const m = parseInt(customMin.value) || 0;
+    const s = parseInt(customSec.value) || 0;
+    const total = m * 60 + s;
+    if (total < 1) return;
+    isCustom = true;
+    presetsEl.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+    totalSeconds = total;
+    remainingSeconds = totalSeconds;
+    selectedMinutes = Math.floor(total / 60);
+    updateDisplay();
+    customRow.classList.remove('show');
+    customOpen = false;
+  }
+
+  customConfirm.addEventListener('click', () => {
+    if (isRunning) return;
+    applyCustomTime();
+  });
+
+  [customMin, customSec].forEach(input => {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        if (!isRunning) applyCustomTime();
+      }
+    });
+  });
+
+  // ====== START / PAUSE ======
   startBtn.addEventListener('click', () => {
-    if (isRunning) {
-      pauseTimer();
-    } else {
-      startTimer();
-    }
+    if (isRunning) pauseTimer();
+    else startTimer();
   });
 
   function startTimer() {
+    if (remainingSeconds <= 0) {
+      remainingSeconds = totalSeconds;
+    }
     isRunning = true;
-    startBtnText.textContent = '暂停';
+    startBtn.textContent = '暂停';
     startBtn.classList.add('running');
-
     timerInterval = setInterval(() => {
       remainingSeconds--;
       updateDisplay();
-
       if (remainingSeconds <= 0) {
         clearInterval(timerInterval);
         isRunning = false;
-        startBtnText.textContent = '开始休息';
+        startBtn.textContent = '开始休息';
         startBtn.classList.remove('running');
         remainingSeconds = totalSeconds;
         updateDisplay();
@@ -557,70 +1015,79 @@
   function pauseTimer() {
     isRunning = false;
     clearInterval(timerInterval);
-    startBtnText.textContent = '继续';
+    startBtn.textContent = '继续';
     startBtn.classList.remove('running');
   }
 
   function updateDisplay() {
-    const mins = Math.floor(remainingSeconds / 60);
-    const secs = remainingSeconds % 60;
-
     if (remainingSeconds === totalSeconds) {
-      timerMinutes.textContent = mins;
-      timerLabel.textContent = '分钟';
+      if (isCustom && totalSeconds < 60) {
+        const m = Math.floor(totalSeconds / 60);
+        const s = totalSeconds % 60;
+        timerValue.textContent = m > 0 ? m + ':' + String(s).padStart(2,'0') : s;
+        timerUnit.textContent = m > 0 ? 'min' : 'sec';
+      } else {
+        timerValue.textContent = Math.ceil(totalSeconds / 60);
+        timerUnit.textContent = 'min';
+      }
     } else {
-      timerMinutes.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
-      timerLabel.textContent = '';
+      const m = Math.floor(remainingSeconds / 60);
+      const s = remainingSeconds % 60;
+      timerValue.textContent = m + ':' + String(s).padStart(2, '0');
+      timerUnit.textContent = '';
     }
-
-    // 更新进度环
     const progress = 1 - (remainingSeconds / totalSeconds);
-    timerProgress.style.strokeDashoffset = circumference * (1 - progress);
+    ringProgress.style.strokeDashoffset = circumference * (1 - progress);
   }
 
-  // ====== 提醒弹窗 ======
+  // ====== REMINDER ======
   const reminderOverlay = document.getElementById('reminderOverlay');
-  const reminderCloseBtn = document.getElementById('reminderCloseBtn');
+  const reminderClose = document.getElementById('reminderClose');
 
   const reminders = [
-    { emoji: '🌿', title: '休息好了吗？', text: '站起来走走吧，<br>窗外的光还很好看。' },
-    { emoji: '☕', title: '该喝杯水了', text: '你做得很棒了，<br>现在轮到照顾自己了。' },
-    { emoji: '🌅', title: '辛苦了', text: '屏幕外的世界也在等你，<br>去看看吧。' },
-    { emoji: '🌷', title: '你今天也很棒', text: '不用急着回去，<br>这几分钟完全属于你。' },
-    { emoji: '🌙', title: '放松一下', text: '闭上眼睛，<br>什么都不想，三分钟就好。' },
-    { emoji: '✨', title: '嘿，抬头看看', text: '你已经很努力了，<br>允许自己慢下来。' },
+    { icon: '\u2618', title: '休息好了吗', text: '站起来走走吧，\n窗外的光还很好看。' },
+    { icon: '\u2615', title: '该喝杯水了', text: '你做得很棒了，\n现在轮到照顾自己了。' },
+    { icon: '\u{1F305}', title: '辛苦了', text: '屏幕外的世界也在等你，\n去看看吧。' },
+    { icon: '\u2661', title: '你今天也很棒', text: '不用急着回去，\n这几分钟完全属于你。' },
+    { icon: '\u263D', title: '放松一下', text: '闭上眼睛，\n什么都不想，三分钟就好。' },
+    { icon: '\u2728', title: '嘿，抬头看看', text: '你已经很努力了，\n允许自己慢下来。' },
+    { icon: '\u2665', title: '该动一动了', text: '伸个懒腰，转转脖子，\n身体会感谢你的。' },
+    { icon: '\u2600', title: '出去走走吧', text: '外面的空气应该不错，\n哪怕只是站一分钟也好。' },
   ];
 
   function showReminder() {
-    const reminder = reminders[Math.floor(Math.random() * reminders.length)];
-    document.getElementById('reminderEmoji').textContent = reminder.emoji;
-    document.getElementById('reminderTitle').textContent = reminder.title;
-    document.getElementById('reminderText').innerHTML = reminder.text;
-
+    const r = reminders[Math.floor(Math.random() * reminders.length)];
+    document.getElementById('reminderIcon').textContent = r.icon;
+    document.getElementById('reminderTitle').textContent = r.title;
+    document.getElementById('reminderText').textContent = r.text;
     reminderOverlay.classList.add('show');
-    spawnStars();
+    spawnParticles();
   }
 
-  reminderCloseBtn.addEventListener('click', () => {
+  reminderClose.addEventListener('click', () => {
     reminderOverlay.classList.remove('show');
   });
 
-  // ====== 星星飘起效果 ======
-  function spawnStars() {
-    const stars = ['⭐', '✨', '🌟', '💫'];
-    for (let i = 0; i < 8; i++) {
+  // ====== FLY PARTICLES ======
+  function spawnParticles() {
+    const symbols = ['\u2726', '\u2727', '\u2605', '\u2736'];
+    for (let i = 0; i < 10; i++) {
       setTimeout(() => {
-        const star = document.createElement('div');
-        star.className = 'flying-star';
-        star.textContent = stars[Math.floor(Math.random() * stars.length)];
-        star.style.left = (30 + Math.random() * 40) + '%';
-        star.style.bottom = '30%';
-        star.style.fontSize = (18 + Math.random() * 20) + 'px';
-        document.body.appendChild(star);
-        setTimeout(() => star.remove(), 3000);
-      }, i * 200);
+        const el = document.createElement('div');
+        el.className = 'fly-particle';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = (25 + Math.random() * 50) + '%';
+        el.style.bottom = '25%';
+        el.style.fontSize = (16 + Math.random() * 18) + 'px';
+        el.style.color = 'var(--accent)';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2500);
+      }, i * 150);
     }
   }
+
+  updateDisplay();
+})();
 </script>
 </body>
 </html>
